@@ -13,8 +13,7 @@ RED = (255, 0, 0)
 GREEN = (0, 255, 0)
 BLUE = (0, 0, 255)
 
-# Рендеринг
-screen.fill(BLACK)
+
 # создаем игру и окно
 pygame.init()
 pygame.mixer.init()  # для звука
@@ -25,6 +24,18 @@ clock = pygame.time.Clock()
 # Цикл игры
 running = True
 while running:
+    # держим цикл на правильной скорости
+    clock.tick(FPS)
     # ввод процесса (события)
+    for event in pygame.event.get():
+        # проверить закрытие окна
+        if event.type == pygame.QUIT:
+            running = False
     # Обновление
-    # Визуализация (сборка)
+
+    # Рендеринг
+    screen.fill(BLACK)
+    # после отрисовки всего, переворачиваем экран
+    pygame.display.flip()
+
+pygame.quit()
