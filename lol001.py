@@ -6,8 +6,7 @@ import os
 # настройка папки ассетов
 game_folder = os.path.dirname(__file__)
 img_folder = os.path.join(game_folder, 'img')
-player_img = pygame.image.load(
-    os.path.join(img_folder, 'p1_jump.png')).convert()
+player_img = pygame.image.load(os.path.join(img_folder, 'p1_jump.png'))
 
 WIDTH = 500  # ширина игрового окна
 HEIGHT = 480  # высота игрового окна
@@ -42,8 +41,8 @@ screen = pygame.display.set_mode((WIDTH, HEIGHT))
 pygame.display.set_caption("My Game")
 clock = pygame.time.Clock()
 all_sprites = pygame.sprite.Group()
-player = Player()
-all_sprites.add(player)
+player_img = Player()
+all_sprites.add(player_img)
 
 
 # Цикл игры
@@ -63,5 +62,6 @@ while running:
     all_sprites.draw(screen)
     # после отрисовки всего, переворачиваем экран
     pygame.display.flip()
+
 
 pygame.quit()
